@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Linux)">
+	<META NAME="CREATED" CONTENT="20050105;12423700">
+	<META NAME="CHANGED" CONTENT="20050105;12433200">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER>Assignments 
+</P>
+<P ALIGN=CENTER>CS 4153/6153 (Fall 2005)</P>
+<H3> Assignment 1 </H3>
+<P>
+Write a simple TCP client and server. Invoke the server in one terminal
+and the client in another terminal. Both the client and server will run
+on the same machine. The client sends a message "Hi" to the server and 
+server responds with "Hello".
+
+The server will be invoked with the command <br>
+>> server serverport <br>
+and the client with the command <br>
+>> client serverIP serverport <br>
+
+For the server, choose a port number between greater than 4000.
+
+For the client determine the IP address of the server (which is also the 
+IP address of the client!) and pass the argument serverIP as a 
+character string in the dotted IP notation.  
+
+<H3> Assignment 2 </H3>
+<P>
+Write a simple TCP client that fetches pages from web servers. 
+<br>
+The client should be invoked with the command (for example) <br>
+>> webclient www.yahoo.com/ <br>
+>> webclient www.msstate.edu/academics/ <br> 
+
+The client should get the response from the HTTP server and print it on the 
+screen.<br>
+<p>
+Hints: <br>
+
+Parse the string into two parts  one before the first / and the rest <br>
+For example for <br>   www.cse.msstate.edu/~ramkumar/cs4_6153.html <br> the 
+first part is <br>  
+www.cse.msstate.edu 
+<br>
+and the second part is <br>
+/~ramkumar/cs4_6153.html <br>
+
+Now create a TCP socket, <br>
+get the IP address using gethostbyname() with the first part,<br> 
+Establish connection with  port 80<br>
+
+Send a HTTP request as contents of your data <br> 
+
+For example, to fetch the page /~ramkumar/cs4_6153.html the request
+should be <br>
+
+GET /~ramkumar/cs4_6153.html HTTP/1.1\r\n
+Host: www.cse.msstate.edu\r\n
+\r\n
+\r\n
+
+<H3> Assignment 3 </H3>
+<P>
+Repeat Assignment 1 with UDP client and server.
+
+
+(Due Oct 19)
+
+<P>
+<H3> Assignment 4 </H3>
+<P>
+Combine the servers in assignments 1 and 3 to a single server which handles
+both UDP and TCP requests. Use the select() call to enable the server to wait on two listening ports at the same time. Use the same port number for UDP and TCP listening sockets.  
+
+Client sends a UDP (or TCP) packet and server should respond
+by sending a UDP (or TCP)  response.
+
+The server would be invoked with the command <br>
+>> server portno <br>
+and the client with the command <br>
+>> client portno 1 <br>
+for TCP, and <br>
+>> client portno 2 <br>
+for UDP. <br>  
+Similar to assigmwents 1 and 3, both the clinet and server will run on the same machine <br>
+(Due Nov 2 )
+
+<P>
+<H3> Assignment 5 </H3>
+<P>
+Write a simple HTTP server. Choose a random port above 4000. The server will
+be tested using a standard browser (Mozilla / Firefox). The http server should
+host at least two html pages, with  and an image in each page, and with links
+in each page to the other page. 
+
+<br>
+(Due Nov 18)
+
+</BODY>
+</HTML>

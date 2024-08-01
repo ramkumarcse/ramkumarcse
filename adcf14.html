@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Linux)">
+	<META NAME="CREATED" CONTENT="20050105;12423700">
+	<META NAME="CHANGED" CONTENT="20050105;12433200">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER>Assignments 
+</P>
+<P ALIGN=CENTER>CSE 4153/6153 (Fall 2014)</P>
+<H3> Assignment 1 </H3>
+<P>
+Write a simple TCP client and server. 
+Both the client and server will run on the same machine.
+The client sends a succinct  greeting to the server and 
+server responds. 
+
+The server will be invoked with the command <br>
+>> server serverport <br>
+and the client with the command <br>
+>> client serverIP serverport <br>
+
+For the server, choose a port number between greater than 4000.
+
+For the client determine the IP address of the server (which is also the 
+IP address of the client!) and pass the argument serverIP as a 
+character string in the dotted IP notation. (Due Sep 29)  
+
+<H3> Assignment 2 </H3>
+<P>
+Repeat Assignment 1 with UDP client and server. (Due Oct 13)
+
+
+<P>
+<H3> Assignment 3 </H3>
+<P>
+Write a simple TCP client that fetches HTML pages from web servers. 
+<br>
+The client will be invoked with the command (for example) <br>
+>> webclient www.yahoo.com/ <br>
+>> webclient www.msstate.edu/academics/ <br> 
+
+The client should get the response from the HTTP server and print it on the 
+screen.<br>
+<p>
+Hints: <br>
+
+Parse the string into two parts  one before the first / and the rest <br>
+For example for <br>   www.cse.msstate.edu/~ramkumar/cs4_6153.html <br> the 
+first part is <br>  
+www.cse.msstate.edu 
+<br>
+and the second part is <br>
+/~ramkumar/cs4_6153.html <br>
+
+Now create a TCP socket, <br>
+get the IP address using gethostbyname() with the first part,<br> 
+Establish connection with  port 80<br>
+
+Send a HTTP request as contents of your data <br> 
+
+For example, to fetch the page /~ramkumar/cs4_6153.html the request
+should be <br>
+
+GET /~ramkumar/cs4_6153.html HTTP/1.1\r\n
+Host: www.cse.msstate.edu\r\n
+\r\n
+\r\n
+
+
+(Due Oct 27)
+
+
+<P>
+<H3> Assignment 4 </H3>
+<P>
+Use wireshark to observe packets exchanged between a client and server (you may use the client and server from assignment 1).
+
+Modify the clent and server to send larger requests and queries (100 byte request and 10000 byte response), using  send() and recv() in a loop. Observe the effect  on packets created depending on the number of bytes sent using each send() call. Feel free to improvise.  
+
+Study the TCP header of every packet and prepare a report describing  your observations. (Due on the day of finals) 
+
+<br>
+
+</BODY>
+</HTML>

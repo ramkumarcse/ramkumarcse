@@ -1,0 +1,32 @@
+<HTML>
+
+<BODY>
+
+<center>
+<H1> SRP Simulation </H1>
+<p>
+<H2> Due Tue, 24 March </H2>
+</center>
+
+Simulate SRP protocol for a channel with the following parameters
+<p>
+1. Packet duration 1 unit of time (both data and ACK packets)
+<p>
+2. Round trip time 20 time units
+<p>
+3. Channel error rate:  1 in 1000 packets 
+<p>
+
+Peform simulations for various window sizes. For each window size perform simulations for 100,000 time units. Compare the overall throughput for each window size.
+<p>
+Repeat simulations for channel error rate of one in a hundred packets.
+
+<p>
+Hints:
+1. Create an array of structures of length equal to the Window size. The structure fields can be  packet number (int), packet sent and ACK received successfully (bool); time ACK expected (int) - the last field is 20+the time at which the packet was sent.
+<p>
+2. Maintain a variable indicating the start of the current Window size
+<p>
+3. Loop 1 to 100,000 - each loop corresponding to a time unit. In loop i, if  the Window start pos is j, check if ACK for packet j+1 is due at time i. If so, you can advance the Window position by 1.
+</BODY>
+</HTML>
